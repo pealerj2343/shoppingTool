@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace shoppingTool
         List<Item> items = new List<Item>();
         double totalCost = 0;
         int numOfItems = 0;
+
+        List<String> files = new List<string>();
 
         NumberFormatInfo currency = new NumberFormatInfo();
 
@@ -87,6 +90,7 @@ namespace shoppingTool
         private void confirmClear_btn_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            items.Clear();
             totalCost = 0;
             totalCost_lbl.Text = String.Format("Total Cost: {0}", totalCost.ToString("C2", currency));
             confirmClear_btn.Visible = false;
@@ -205,6 +209,71 @@ namespace shoppingTool
         private void edit_btn_Click(object sender, EventArgs e)
         {
             edit();
+        }
+
+        private void load_btn_Click(object sender, EventArgs e)
+        {
+            if (fileLocation_txtbx.Text != "")
+            {
+                String line;
+                items.Clear();
+                try
+                {
+                    //Pass the file path and file name to the StreamReader constructor
+                    StreamReader sr = new StreamReader(fileLocation_txtbx.Text);
+                    //Read the first line of text
+                    numOfItems = 0;
+                    line = sr.ReadLine();
+                    files.Add(line);
+                    files_listbox.Items.Add(files[numOfItems]);
+                    while (line != null)
+                    {
+                        line = sr.ReadLine();
+                        numOfItems++;
+                        files.Add(line);
+                        files_listbox.Items.Add(files[numOfItems]);
+                        String temp = line;
+                        String name = temp.Substring(0, temp.IndexOf(" "));
+                        temp = temp.Substring(temp.IndexOf(" ") + 1);
+                        int count = int.Parse(temp.Substring(0, temp.IndexOf(" ") + 1));
+                        temp = temp.Substring(temp.IndexOf(" ") + 1);
+                        double price = double.Parse(temp);
+                        Item item = new Item(count, price, name);
+                        item.changeSymbol(currency.CurrencySymbol);
+                        items.Add(item);
+                    }
+                    //close the file
+                    sr.Close();
+                    Console.ReadLine();
+                }
+                catch (Exception)
+                {
+
+                }
+                
+            }
+        }
+
+        private void loadList_btn_Click(object sender, EventArgs e)
+        {
+            reloadList();
+            panel4.Visible = false;
+            panel2.Visible = true;
+            menuStrip1.Visible = true;
+        }
+
+        private void newList_btn_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            items.Clear();
+            panel4.Visible = false;
+            panel2.Visible = true;
+            menuStrip1.Visible = true;
+        }
+
+        private void files_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     public class Item
