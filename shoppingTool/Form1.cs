@@ -138,10 +138,17 @@ namespace shoppingTool
             totalCost = 0;
             for (int i = 0; i < numOfItems; i++)
             {
-                items[i].changeSymbol(s);
-                items[i].UnitPrice = items[i].UnitPrice * exchangeRate;
-                items[i].updateTotal();
-                totalCost += items[i].getTotalPrice();
+                try
+                {
+                    items[i].changeSymbol(s);
+                    items[i].UnitPrice = items[i].UnitPrice * exchangeRate;
+                    items[i].updateTotal();
+                    totalCost += items[i].getTotalPrice();
+                }
+                catch (Exception)
+                {
+
+                }
             }
             reloadList();
             totalCost_lbl.Text = String.Format("Total Cost: {0}", totalCost.ToString("C2", currency));
@@ -153,7 +160,6 @@ namespace shoppingTool
             {
                 listBox1.Items.Add(item);
             }
-
         }
         private void uSDToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -217,11 +223,11 @@ namespace shoppingTool
             {
                 String line;
                 items.Clear();
+                files.Clear();
+                files_listbox.Items.Clear();
                 try
                 {
-                    //Pass the file path and file name to the StreamReader constructor
                     StreamReader sr = new StreamReader(fileLocation_txtbx.Text);
-                    //Read the first line of text
                     numOfItems = 0;
                     line = sr.ReadLine();
                     files.Add(line);
@@ -242,9 +248,7 @@ namespace shoppingTool
                         item.changeSymbol(currency.CurrencySymbol);
                         items.Add(item);
                     }
-                    //close the file
                     sr.Close();
-                    Console.ReadLine();
                 }
                 catch (Exception)
                 {
@@ -252,6 +256,7 @@ namespace shoppingTool
                 }
                 
             }
+            numOfItems--;
         }
 
         private void loadList_btn_Click(object sender, EventArgs e)

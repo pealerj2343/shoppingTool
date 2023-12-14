@@ -33,6 +33,7 @@ namespace shoppingTool
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.clear_btn = new System.Windows.Forms.Button();
+            this.totalCost_lbl = new System.Windows.Forms.Label();
             this.confirmClear_btn = new System.Windows.Forms.Button();
             this.inavlid_lbl = new System.Windows.Forms.Label();
             this.add_btn = new System.Windows.Forms.Button();
@@ -49,22 +50,21 @@ namespace shoppingTool
             this.uSDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eURToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOUNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.totalCost_lbl = new System.Windows.Forms.Label();
             this.removeOne_btn = new System.Windows.Forms.Button();
             this.addOne_btn = new System.Windows.Forms.Button();
             this.edit_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.newList_btn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.loadList_btn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.files_listbox = new System.Windows.Forms.ListBox();
-            this.load_btn = new System.Windows.Forms.Button();
-            this.fileLocation_txtbx = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.newList_btn = new System.Windows.Forms.Button();
+            this.fileLocation_txtbx = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.load_btn = new System.Windows.Forms.Button();
+            this.loadList_btn = new System.Windows.Forms.Button();
+            this.files_listbox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,6 +102,16 @@ namespace shoppingTool
             this.clear_btn.Text = "Clear List";
             this.clear_btn.UseVisualStyleBackColor = true;
             this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
+            // 
+            // totalCost_lbl
+            // 
+            this.totalCost_lbl.AutoSize = true;
+            this.totalCost_lbl.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCost_lbl.Location = new System.Drawing.Point(12, 83);
+            this.totalCost_lbl.Name = "totalCost_lbl";
+            this.totalCost_lbl.Size = new System.Drawing.Size(64, 15);
+            this.totalCost_lbl.TabIndex = 10;
+            this.totalCost_lbl.Text = "Total Cost: ";
             // 
             // confirmClear_btn
             // 
@@ -248,16 +258,6 @@ namespace shoppingTool
             this.pOUNDToolStripMenuItem.Text = "POUND";
             this.pOUNDToolStripMenuItem.Click += new System.EventHandler(this.pOUNDToolStripMenuItem_Click);
             // 
-            // totalCost_lbl
-            // 
-            this.totalCost_lbl.AutoSize = true;
-            this.totalCost_lbl.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCost_lbl.Location = new System.Drawing.Point(12, 83);
-            this.totalCost_lbl.Name = "totalCost_lbl";
-            this.totalCost_lbl.Size = new System.Drawing.Size(64, 15);
-            this.totalCost_lbl.TabIndex = 10;
-            this.totalCost_lbl.Text = "Total Cost: ";
-            // 
             // removeOne_btn
             // 
             this.removeOne_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -326,80 +326,6 @@ namespace shoppingTool
             this.panel4.Size = new System.Drawing.Size(744, 541);
             this.panel4.TabIndex = 16;
             // 
-            // newList_btn
-            // 
-            this.newList_btn.Location = new System.Drawing.Point(473, 294);
-            this.newList_btn.Name = "newList_btn";
-            this.newList_btn.Size = new System.Drawing.Size(75, 23);
-            this.newList_btn.TabIndex = 7;
-            this.newList_btn.Text = "New List";
-            this.newList_btn.UseVisualStyleBackColor = true;
-            this.newList_btn.Click += new System.EventHandler(this.newList_btn_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(470, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 14);
-            this.label3.TabIndex = 6;
-            // 
-            // loadList_btn
-            // 
-            this.loadList_btn.Location = new System.Drawing.Point(377, 294);
-            this.loadList_btn.Name = "loadList_btn";
-            this.loadList_btn.Size = new System.Drawing.Size(75, 23);
-            this.loadList_btn.TabIndex = 5;
-            this.loadList_btn.Text = "Load List";
-            this.loadList_btn.UseVisualStyleBackColor = true;
-            this.loadList_btn.Click += new System.EventHandler(this.loadList_btn_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 14);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "List Preview";
-            // 
-            // files_listbox
-            // 
-            this.files_listbox.FormattingEnabled = true;
-            this.files_listbox.ItemHeight = 14;
-            this.files_listbox.Location = new System.Drawing.Point(81, 43);
-            this.files_listbox.Name = "files_listbox";
-            this.files_listbox.Size = new System.Drawing.Size(267, 256);
-            this.files_listbox.TabIndex = 3;
-            this.files_listbox.SelectedIndexChanged += new System.EventHandler(this.files_listbox_SelectedIndexChanged);
-            // 
-            // load_btn
-            // 
-            this.load_btn.Location = new System.Drawing.Point(411, 8);
-            this.load_btn.Name = "load_btn";
-            this.load_btn.Size = new System.Drawing.Size(75, 23);
-            this.load_btn.TabIndex = 2;
-            this.load_btn.Text = "Load";
-            this.load_btn.UseVisualStyleBackColor = true;
-            this.load_btn.Click += new System.EventHandler(this.load_btn_Click);
-            // 
-            // fileLocation_txtbx
-            // 
-            this.fileLocation_txtbx.Location = new System.Drawing.Point(151, 9);
-            this.fileLocation_txtbx.Name = "fileLocation_txtbx";
-            this.fileLocation_txtbx.Size = new System.Drawing.Size(234, 22);
-            this.fileLocation_txtbx.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Shopping List Location:";
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Snow;
@@ -416,14 +342,88 @@ namespace shoppingTool
             this.panel5.Size = new System.Drawing.Size(576, 348);
             this.panel5.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Shopping List Location:";
+            // 
+            // newList_btn
+            // 
+            this.newList_btn.Location = new System.Drawing.Point(473, 294);
+            this.newList_btn.Name = "newList_btn";
+            this.newList_btn.Size = new System.Drawing.Size(75, 23);
+            this.newList_btn.TabIndex = 7;
+            this.newList_btn.Text = "New List";
+            this.newList_btn.UseVisualStyleBackColor = true;
+            this.newList_btn.Click += new System.EventHandler(this.newList_btn_Click);
+            // 
+            // fileLocation_txtbx
+            // 
+            this.fileLocation_txtbx.Location = new System.Drawing.Point(151, 9);
+            this.fileLocation_txtbx.Name = "fileLocation_txtbx";
+            this.fileLocation_txtbx.Size = new System.Drawing.Size(234, 22);
+            this.fileLocation_txtbx.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(470, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 14);
+            this.label3.TabIndex = 6;
+            // 
+            // load_btn
+            // 
+            this.load_btn.Location = new System.Drawing.Point(411, 8);
+            this.load_btn.Name = "load_btn";
+            this.load_btn.Size = new System.Drawing.Size(75, 23);
+            this.load_btn.TabIndex = 2;
+            this.load_btn.Text = "Load";
+            this.load_btn.UseVisualStyleBackColor = true;
+            this.load_btn.Click += new System.EventHandler(this.load_btn_Click);
+            // 
+            // loadList_btn
+            // 
+            this.loadList_btn.Location = new System.Drawing.Point(377, 294);
+            this.loadList_btn.Name = "loadList_btn";
+            this.loadList_btn.Size = new System.Drawing.Size(75, 23);
+            this.loadList_btn.TabIndex = 5;
+            this.loadList_btn.Text = "Load List";
+            this.loadList_btn.UseVisualStyleBackColor = true;
+            this.loadList_btn.Click += new System.EventHandler(this.loadList_btn_Click);
+            // 
+            // files_listbox
+            // 
+            this.files_listbox.FormattingEnabled = true;
+            this.files_listbox.ItemHeight = 14;
+            this.files_listbox.Location = new System.Drawing.Point(81, 43);
+            this.files_listbox.Name = "files_listbox";
+            this.files_listbox.Size = new System.Drawing.Size(267, 256);
+            this.files_listbox.TabIndex = 3;
+            this.files_listbox.SelectedIndexChanged += new System.EventHandler(this.files_listbox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 14);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "List Preview";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(744, 541);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
